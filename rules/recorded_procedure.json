@@ -1,0 +1,11 @@
+{
+  "id": "RPV_PROPOSAL_MONTH_V1",
+  "version": "1",
+  "field": "base_date",
+  "source_field": "proposal_date",
+  "transform": "calendar_month",
+  "confirmed_by": "user_in_session",
+  "scope": "agreement_and_expert_payment_procedure",
+  "conflicting_explicit_base_date": "CONFLICTING_SOURCES",
+  "live_writes_enabled": false
+}

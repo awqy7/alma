@@ -1,0 +1,37 @@
+name: Instalador ALMA Windows x64
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: windows-2022
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: apps/desktop/package-lock.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          architecture: x64
+      - name: Preparar Rust
+        shell: pwsh
+        run: |
+          rustup default stable
+          rustup target add x86_64-pc-windows-msvc
+      - name: Compilar e testar
+        shell: pwsh
+        run: ./scripts/build-windows.ps1
+      - name: Instalar e verificar runtime instalado
+        shell: pwsh
+        run: ./scripts/test-windows-install.ps1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ALMA-Windows-x64
+          path: release/windows/
+          if-no-files-found: error
+          retention-days: 14

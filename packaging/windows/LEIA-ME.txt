@@ -1,0 +1,20 @@
+ALMA 0.1.0 - Windows 10/11 x64 - versao de teste
+
+1. Execute ALMA-0.1.0-windows-x64-setup.exe.
+2. Conclua a instalacao e abra ALMA pelo Menu Iniciar.
+3. Para testar: Ensaiar documentos > Testar agora com documentos ficticios.
+   Escolha "Gravacao: proposta HTML + pedido AJG em PDF".
+
+O aplicativo inclui Python e Chromium. O funcionario nao precisa instalar
+Python, Node, Rust ou abrir um terminal. O instalador inclui WebView2.
+Configuracoes institucionais do Windows podem exigir apoio da TI.
+
+Disponivel: ensaio local, leitura HTML/PDF, comparacao e evidencias.
+Salvamento no eproc ainda indisponivel; intimacao automatica desabilitada.
+PDF digitalizado sem texto exige revisao; OCR nao esta incluido nesta versao.
+
+O instalador de teste nao possui assinatura digital. A distribuicao aos
+funcionarios deve seguir o procedimento da TI, sem desativar a protecao do Windows.
+
+Dados de trabalho sao locais ao usuario. A desinstalacao nao apaga a auditoria
+nem o perfil de navegador dedicado. A limpeza desses dados deve ser deliberada.

@@ -1,0 +1,162 @@
+{
+  "$defs": {
+    "Beneficiary": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "fields": {
+          "additionalProperties": {
+            "$ref": "#/$defs/FieldValue"
+          },
+          "title": "Fields",
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "fields"
+      ],
+      "title": "Beneficiary",
+      "type": "object"
+    },
+    "Fee": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "fields": {
+          "additionalProperties": {
+            "$ref": "#/$defs/FieldValue"
+          },
+          "title": "Fields",
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "fields"
+      ],
+      "title": "Fee",
+      "type": "object"
+    },
+    "FieldValue": {
+      "additionalProperties": false,
+      "properties": {
+        "raw": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Raw"
+        },
+        "normalized": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Normalized"
+        },
+        "presence": {
+          "default": "unknown",
+          "enum": [
+            "present",
+            "missing",
+            "not_applicable",
+            "unknown"
+          ],
+          "title": "Presence",
+          "type": "string"
+        }
+      },
+      "title": "FieldValue",
+      "type": "object"
+    },
+    "Requisition": {
+      "additionalProperties": false,
+      "properties": {
+        "fields": {
+          "additionalProperties": {
+            "$ref": "#/$defs/FieldValue"
+          },
+          "title": "Fields",
+          "type": "object"
+        }
+      },
+      "required": [
+        "fields"
+      ],
+      "title": "Requisition",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "process_id": {
+      "title": "Process Id",
+      "type": "string"
+    },
+    "requisition_id": {
+      "title": "Requisition Id",
+      "type": "string"
+    },
+    "requisition": {
+      "$ref": "#/$defs/Requisition"
+    },
+    "beneficiaries": {
+      "items": {
+        "$ref": "#/$defs/Beneficiary"
+      },
+      "title": "Beneficiaries",
+      "type": "array"
+    },
+    "fees": {
+      "items": {
+        "$ref": "#/$defs/Fee"
+      },
+      "title": "Fees",
+      "type": "array"
+    },
+    "captured_at": {
+      "title": "Captured At",
+      "type": "string"
+    },
+    "coverage": {
+      "additionalProperties": {
+        "enum": [
+          "read",
+          "unknown",
+          "not_applicable"
+        ],
+        "type": "string"
+      },
+      "title": "Coverage",
+      "type": "object"
+    }
+  },
+  "required": [
+    "process_id",
+    "requisition_id",
+    "requisition",
+    "captured_at"
+  ],
+  "title": "RpvSnapshot",
+  "type": "object"
+}

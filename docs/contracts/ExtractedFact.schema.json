@@ -1,0 +1,142 @@
+{
+  "$defs": {
+    "Evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "process_id": {
+          "title": "Process Id",
+          "type": "string"
+        },
+        "requisition_id": {
+          "title": "Requisition Id",
+          "type": "string"
+        },
+        "document_id": {
+          "title": "Document Id",
+          "type": "string"
+        },
+        "document_name": {
+          "title": "Document Name",
+          "type": "string"
+        },
+        "event": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Event"
+        },
+        "page": {
+          "minimum": 1,
+          "title": "Page",
+          "type": "integer"
+        },
+        "raw_text": {
+          "title": "Raw Text",
+          "type": "string"
+        },
+        "bbox": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "number"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Bbox"
+        },
+        "normalized_value": {
+          "title": "Normalized Value",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "extracted_at": {
+          "title": "Extracted At",
+          "type": "string"
+        }
+      },
+      "required": [
+        "process_id",
+        "requisition_id",
+        "document_id",
+        "document_name",
+        "event",
+        "page",
+        "raw_text",
+        "normalized_value",
+        "sha256",
+        "extracted_at"
+      ],
+      "title": "Evidence",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "field": {
+      "title": "Field",
+      "type": "string"
+    },
+    "subject_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Subject Id"
+    },
+    "scope_verified": {
+      "default": false,
+      "title": "Scope Verified",
+      "type": "boolean"
+    },
+    "value_raw": {
+      "title": "Value Raw",
+      "type": "string"
+    },
+    "value_normalized": {
+      "title": "Value Normalized",
+      "type": "string"
+    },
+    "source": {
+      "$ref": "#/$defs/Evidence"
+    },
+    "confidence": {
+      "enum": [
+        "EXACT_TEXT",
+        "STRUCTURED_TABLE",
+        "REGEX_MATCH",
+        "OCR_HIGH",
+        "OCR_LOW"
+      ],
+      "title": "Confidence",
+      "type": "string"
+    }
+  },
+  "required": [
+    "field",
+    "value_raw",
+    "value_normalized",
+    "source",
+    "confidence"
+  ],
+  "title": "ExtractedFact",
+  "type": "object"
+}

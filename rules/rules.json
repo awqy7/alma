@@ -1,0 +1,10 @@
+[
+  {"id":"RPV_VALUE_TOTAL_V1","version":"1","field":"total_value","comparison":"decimal_equal","tolerance":"0.00"},
+  {"id":"RPV_PRINCIPAL_V1","version":"1","field":"principal","comparison":"decimal_equal","tolerance":"0.00"},
+  {"id":"RPV_INTEREST_V1","version":"1","field":"interest","comparison":"decimal_equal","tolerance":"0.00"},
+  {"id":"RPV_SELIC_V1","version":"1","field":"selic","comparison":"decimal_equal","tolerance":"0.00"},
+  {"id":"RPV_IRPF_V1","version":"1","field":"irpf","comparison":"decimal_equal","tolerance":"0.00"},
+  {"id":"RPV_PSS_V1","version":"1","field":"pss","comparison":"decimal_equal","tolerance":"0.00"},
+  {"id":"RPV_FEE_TOTAL_V1","version":"1","field":"fee_total","comparison":"decimal_equal","tolerance":"0.00"},
+  {"id":"RPV_DATE_BASE_V1","version":"1","field":"base_date","comparison":"date_equal"}
+]
